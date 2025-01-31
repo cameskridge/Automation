@@ -11,15 +11,16 @@ def generate_password():
     password_form.delete(0, END)
     password_form.insert(0, password)    
     
-# ---------------------------- SAVE PASSWORD ------------------------------- #
+#SAVE PASSWORD
 def export_login():
     login = f'{website_form.get()} | {email_form.get()} | {password_form.get()}'
     file_name = "passwords.txt"
     with open(file_name, "a") as file:
         file.write(login + "\n")
+    website_form.delete(0, END)
+    password_form.delete(0, END)
 
-    
-# ---------------------------- UI SETUP ------------------------------- #
+#USER INTERFACE
 window = Tk()
 window.title('Password Manager')
 window.minsize(450, 300)
